@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Countdown 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Comic Sans MS', 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #e0c3fc, #c2e9fb);
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 45px 50px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      animation: float 4s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+
+    .sparkles {
+      font-size: 1.8rem;
+      animation: sparkle 1.5s infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes sparkle {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background-color: pink;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>🎉✨ 6 months to go ✨🎉</h1>
+    <p>Until you turn <strong>30</strong> 💖</p>
+    <p class="sparkles">🌸💫🦋✨🎂💖</p>
+  </div>
+
+  <script>
+    // CONFETTI GENERATOR 🎊
+    for (let i = 0; i < 80; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = (Math.random() * 3 + 3) + "s";
+      confetti.style.opacity = Math.random();
+      confetti.style.backgroundColor =
+        ["#ffb6c1", "#e0c3fc", "#c2e9fb", "#fff1a8", "#b5ead7"]
+        [Math.floor(Math.random() * 5)];
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+</body>
+</html>
